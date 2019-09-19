@@ -1,6 +1,7 @@
 (function () {
     let canvas = document.getElementById("canvas");
 
+
     let Engine = Matter.Engine,
         Render = Matter.Render,
         Bodies = Matter.Bodies,
@@ -10,6 +11,7 @@
         MouseConstraint = Matter.MouseConstraint;
 
     let engine = Engine.create();
+    // engine.World.gravity.y = 0;
 
     let render = Render.create({
         canvas: canvas,
@@ -26,9 +28,9 @@
         frictionStatic: 0.1,
         render: {
             visible: true,
-            sprite: {
-                texture: './images/box.png',
-            }
+            // sprite: {
+            //     texture: './images/box.png',
+            // }
         },
         isStatic: false
     };
@@ -36,14 +38,14 @@
     let wall = (x, y, width, height) => {
         return Bodies.rectangle(x, y, width, height, {
             isStatic: true, render: {
-                fillStyle: 'black'
+                fillStyle: 'white'
             }
         });
     };
 
     World.add(engine.world, [
         Composites.softBody(250, 100, 5, 5, 0, 0, true, 18, particleOptions),
-        Composites.softBody(400, 300, 8, 3, 0, 0, true, 15, particleOptions),
+        // Composites.softBody(400, 300, 8, 3, 0, 0, true, 15, particleOptions),
         Composites.softBody(250, 400, 4, 4, 0, 0, true, 15, particleOptions),
 
         wall(canvas.width / 2, 0, canvas.width, 1), //top
@@ -69,6 +71,12 @@
     // keep the mouse in sync with rendering
     render.mouse = mouse;
 
+
     Engine.run(engine);
     Render.run(render);
+
+
 })();
+
+
+

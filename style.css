@@ -17,7 +17,7 @@
 
 }
 canvas{
-    border: 2px solid white;
+    /* border: 2px solid white; */
     margin: auto;
     display: block;
     background: white;
@@ -33,4 +33,15 @@ footer{
     font-size: 12px;
     margin-bottom: 5px;
     text-align: center;
+}
+.reload{
+    text-align: center;
+}
+
+.reload button{
+    background: none;
+    font-size: 15px;
+    color:white;
+    border: none;
+    font-family: 'Frijole', cursive;
 }
